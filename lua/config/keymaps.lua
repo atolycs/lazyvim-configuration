@@ -42,3 +42,16 @@ keymap.set({ "n", "v" }, "<C-k>", "<C-b>", silent_opts({}))
 
 -- Hilight off
 keymap.set("n", "<esc><esc>", "<cmd>nohl<cr>", silent_opts({}))
+
+-- Window split
+keymap.set("n", "ss", "<cmd>split<cr>", silent_opts({}))
+keymap.set("n", "sv", "<cmd>vsplit<cr>", silent_opts({}))
+-- keymap.set("n", "sv", function()
+--   vim.notify("Reload Test")
+-- end, silent_opts({}))
+
+if vim.fn.has("nvim-0.12.0") ~= 1 then
+  keymap.set("n", "<leader><Enter>", function()
+    vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
+  end)
+end
