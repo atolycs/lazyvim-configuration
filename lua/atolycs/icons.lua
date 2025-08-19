@@ -6,7 +6,9 @@ M.files = {
 
 M.dash = {
   config = "", -- nf-fa-wrench
-  lazy = "",
+  lazy = "", -- nf-fa-bolt
+  exit = "", -- nf-oct-sign_out
+  new = "", -- nf-fa-file
 }
 
 M.general = {}
