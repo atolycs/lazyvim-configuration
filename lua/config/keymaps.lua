@@ -46,6 +46,13 @@ keymap.set("n", "<esc><esc>", "<cmd>nohl<cr>", silent_opts({}))
 -- Window split
 keymap.set("n", "ss", "<cmd>split<cr>", silent_opts({}))
 keymap.set("n", "sv", "<cmd>vsplit<cr>", silent_opts({}))
+
+-- window moving
+keymap.set("n", "sl", "<C-w>l", silent_opts({})) -- right
+keymap.set("n", "sh", "<C-w>h", silent_opts({})) -- left
+keymap.set("n", "sj", "<C-w>j", silent_opts({})) -- down
+keymap.set("n", "sk", "<C-w>k", silent_opts({})) -- up
+
 -- keymap.set("n", "sv", function()
 --   vim.notify("Reload Test")
 -- end, silent_opts({}))
