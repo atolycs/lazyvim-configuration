@@ -1,4 +1,9 @@
 return {
+  -- buffer line
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
   -- status line
   {
     "nvim-lualine/lualine.nvim",
@@ -43,5 +48,32 @@ return {
         end,
       })
     end,
+  },
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      ---@type snacks.explorer.Config
+      explorer = {
+        enabled = false,
+      },
+    },
+  },
+
+  {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    dependencies = {
+      {
+        "echasnovski/mini.icons",
+        opts = {},
+      },
+      {
+        "nvim-tree/nvim-web-devicons",
+      },
+    },
+    lazy = false,
   },
 }
