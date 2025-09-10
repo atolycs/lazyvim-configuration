@@ -9,6 +9,7 @@ M.dash = {
   lazy = "", -- nf-fa-bolt
   exit = "", -- nf-oct-sign_out
   new = "", -- nf-fa-file
+  open = "", -- nf-custom-folder_open
 }
 
 M.general = {}

@@ -12,6 +12,12 @@ return {
             desc = "[C]onfig",
             action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
           },
+          {
+            icon = require("atolycs.icons").dash.open,
+            key = "C",
+            desc = "open [C]urrent Directory",
+            action = ":e .",
+          },
           { icon = require("atolycs.icons").dash.lazy, key = "l", desc = "[L]azy", action = ":Lazy" },
           { icon = require("atolycs.icons").dash.exit, key = "q", desc = "[Q]uit", action = ":qa" },
         },
