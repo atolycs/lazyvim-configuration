@@ -59,21 +59,29 @@ return {
       },
     },
   },
-
   {
-    "stevearc/oil.nvim",
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {},
+    "nvim-tree/nvim-tree.lua",
     dependencies = {
-      {
-        "echasnovski/mini.icons",
-        opts = {},
-      },
-      {
-        "nvim-tree/nvim-web-devicons",
-      },
+      "nvim-tree/nvim-web-devicons",
     },
-    lazy = false,
+    config = function(_, config)
+      require("nvim-tree").setup({})
+    end,
   },
+  -- {
+  --   "stevearc/oil.nvim",
+  --   ---@module 'oil'
+  --   ---@type oil.SetupOpts
+  --   opts = {},
+  --   dependencies = {
+  --     {
+  --       "echasnovski/mini.icons",
+  --       opts = {},
+  --     },
+  --     {
+  --       "nvim-tree/nvim-web-devicons",
+  --     },
+  --   },
+  --   lazy = false,
+  -- },
 }
