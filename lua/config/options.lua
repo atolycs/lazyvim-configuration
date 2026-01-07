@@ -3,3 +3,10 @@
 -- Add any additional options here
 
 vim.opt.conceallevel = 0
+
+vim.opt.smarttab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+
+vim.opt.path:append({ "**" })
+vim.opt.wildignore:append({ "*/node_modules/*" })
