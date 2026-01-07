@@ -10,3 +10,11 @@ vim.opt.tabstop = 2
 
 vim.opt.path:append({ "**" })
 vim.opt.wildignore:append({ "*/node_modules/*" })
+
+if util.isWin() then
+  if util.which("pwsh") then
+    vim.opt.shell = "pwsh"
+  else
+    vim.opt.shell = "powershell"
+  end
+end
