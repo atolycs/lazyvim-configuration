@@ -4,6 +4,9 @@
 
 vim.opt.conceallevel = 0
 
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+
 vim.opt.smarttab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -20,4 +23,8 @@ if util.isWin() then
   else
     vim.opt.shell = "powershell"
   end
+end
+
+if vim.fn.has("nvim-0.8") == 1 then
+  vim.opt.cmdheight = 0
 end
