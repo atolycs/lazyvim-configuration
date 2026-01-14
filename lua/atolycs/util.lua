@@ -20,4 +20,10 @@ function M.which(exe)
   return vim.fn.executable(exe) == 1
 end
 
+vim.api.nvim_create_user_command("OpenIDE", function()
+  vim.cmd("split")
+  vim.cmd("terminal")
+  vim.cmd("resize 5")
+end, { desc = "Open IDE Terminal" })
+
 return M

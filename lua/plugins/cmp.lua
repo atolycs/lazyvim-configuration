@@ -1,7 +1,21 @@
 return {
   {
+    "allaman/emoji.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function(_, opts)
+      require("emoji").setup(opts)
+      local ts = require("telescope").load_extension("emoji")
+      vim.keymap.set("n", "<leader>se", ts.emoji, {
+        desc = "[S]earch [E]moji",
+      })
+    end,
+  },
+
+  {
     "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
+    -- dependencies = { "hrsh7th/cmp-emoji" },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       table.insert(opts.sources, { name = "emoji" })

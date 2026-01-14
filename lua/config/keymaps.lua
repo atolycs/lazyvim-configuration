@@ -53,6 +53,9 @@ keymap.set("n", "sh", "<C-w>h", silent_opts({})) -- left
 keymap.set("n", "sj", "<C-w>j", silent_opts({})) -- down
 keymap.set("n", "sk", "<C-w>k", silent_opts({})) -- up
 
+-- terminal mode
+keymap.set("t", "<c-;>", "<c-\\><c-n>")
+
 -- keymap.set("n", "sv", function()
 --   vim.notify("Reload Test")
 -- end, silent_opts({}))
