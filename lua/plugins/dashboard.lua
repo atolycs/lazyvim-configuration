@@ -12,9 +12,12 @@ local logo = [[
 
 local max_logo_width = 0
 
+local logo_lines = {}
+
 for line in logo:gmatch("[^\n]+") do
   local w = vim.fn.strdisplaywidth(line)
   max_logo_width = math.max(max_logo_width, w)
+  -- table.insert(logo_lines, { text = line })
 end
 
 local logo_padding = 5
@@ -23,6 +26,17 @@ local header = logo
   .. string.rep(" ", math.max(0, max_logo_width - #("ver " .. version_str)) - logo_padding)
   .. "ver "
   .. version_str
+
+-- for _, l in ipairs(logo_lines) do
+--   max_logo_width = math.max(max_logo_width, vim.fn.strdisplaywidth(l.text))
+-- end
+--
+-- table.insert(logo_lines, {
+--   text = string.rep(" ", math.max(0, max_logo_width - vim.fn.strdisplaywidth(version_str))) .. version_str,
+--   hl = "Comment",
+-- })
+--
+-- vim.notify(logo_lines)
 
 return {
 
