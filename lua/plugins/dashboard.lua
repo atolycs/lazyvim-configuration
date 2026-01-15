@@ -1,4 +1,31 @@
+local v = vim.version()
+local version_str = string.format("%d.%d.%d", v.major, v.minor, v.patch)
+
+local logo = [[
+          ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
+          ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
+          ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
+          ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+          ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
+          ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
+]]
+
+local max_logo_width = 0
+
+for line in logo:gmatch("[^\n]+") do
+  local w = vim.fn.strdisplaywidth(line)
+  max_logo_width = math.max(max_logo_width, w)
+end
+
+local logo_padding = 5
+
+local header = logo
+  .. string.rep(" ", math.max(0, max_logo_width - #("ver " .. version_str)) - logo_padding)
+  .. "ver "
+  .. version_str
+
 return {
+
   -- dashboard snacks
   "folke/snacks.nvim",
   opts = {
@@ -21,6 +48,7 @@ return {
           { icon = require("atolycs.icons").dash.lazy, key = "l", desc = "[L]azy", action = ":Lazy" },
           { icon = require("atolycs.icons").dash.exit, key = "q", desc = "[Q]uit", action = ":qa" },
         },
+        header = header,
       },
     },
   },
