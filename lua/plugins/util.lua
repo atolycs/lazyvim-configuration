@@ -1,5 +1,6 @@
 return {
   {
-    dir = "~/github/my-nvim-util/",
+    "atolycs/my-nvim-util",
+    -- dev = true,
   },
 }

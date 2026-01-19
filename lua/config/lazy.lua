@@ -50,4 +50,9 @@ require("lazy").setup({
       },
     },
   },
+
+  dev = {
+    path = "~/github",
+    patterns = { "atolycs/my-nvim-util" },
+  },
 })
