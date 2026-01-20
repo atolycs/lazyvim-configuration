@@ -1,6 +1,6 @@
 return {
-  {
-    "atolycs/my-nvim-util",
-    -- dev = true,
-  },
+  -- {
+  --   "atolycs/my-nvim-util",
+  --   -- dev = true,
+  -- },
 }
