@@ -9,4 +9,15 @@ return {
       })
     end,
   },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = { "lua_ls" },
+      automatic_enable = {
+        exclude = {
+          "lua_ls",
+        },
+      },
+    },
+  },
 }
