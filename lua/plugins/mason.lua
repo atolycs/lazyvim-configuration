@@ -6,13 +6,17 @@ return {
         "stylua",
         "tree-sitter-cli",
         "typescript-language-server",
+        "gh-actions-language-server",
+        "systemd-lsp",
       })
     end,
   },
   {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "lua_ls" },
+      ensure_installed = {
+        "lua_ls",
+      },
       automatic_enable = {
         exclude = {
           "lua_ls",
