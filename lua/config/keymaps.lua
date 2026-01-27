@@ -16,6 +16,10 @@ local function silent_opts(opts)
   return opts
 end
 
+-- Increment/decrement
+keymap.set("n", "+", "<C-a>")
+keymap.set("n", "-", "<C-x>")
+
 -- Do things without affecting the registers
 keymap.set({ "n", "v" }, "x", '"_x', default_opts({}))
 keymap.set({ "n", "v" }, "dd", '"_dd', default_opts({}))
