@@ -8,6 +8,7 @@ return {
         "typescript-language-server",
         "gh-actions-language-server",
         "systemd-lsp",
+        "bash-language-server",
       })
     end,
   },
