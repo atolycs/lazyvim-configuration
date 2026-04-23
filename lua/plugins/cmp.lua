@@ -15,6 +15,7 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
+    enabled = false,
     -- dependencies = { "hrsh7th/cmp-emoji" },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
@@ -58,4 +59,22 @@ return {
   },
 
   { "nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
+  {
+    "saghen/blink.cmp",
+    dependencies = {
+      "saghen/blink.lib",
+    },
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+      keymap = {
+        preset = "enter",
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+      },
+    },
+  },
 }
