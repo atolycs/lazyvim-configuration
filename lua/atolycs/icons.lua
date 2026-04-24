@@ -10,6 +10,7 @@ M.dash = {
   exit = "", -- nf-oct-sign_out
   new = "", -- nf-fa-file
   open = "", -- nf-custom-folder_open
+  mason = "󰢛",
 }
 
 M.general = {}
