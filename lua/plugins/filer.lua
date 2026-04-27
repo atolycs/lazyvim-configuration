@@ -35,7 +35,7 @@ return {
       local fb_actions = require("telescope").extensions.file_browser.actions
       opts.extensions = {
         file_browser = {
-          theme = "dropdown",
+          -- theme = "dropdown",
           hijack_netrw = true,
           mappings = {
             ["n"] = {
@@ -44,10 +44,13 @@ return {
               ["/"] = function()
                 vim.cmd("startinsert")
               end,
+              ["q"] = actions.close,
             },
           },
         },
       }
+      telescope.setup(opts)
+      require("telescope").load_extension("file_browser")
     end,
   },
 }
