@@ -4,7 +4,19 @@ return {
     name = "github-theme",
     lazy = false,
     priority = 1000,
-    config = function()
+    opts = {
+      options = {
+        transparent = (function()
+          if require("atolycs.util").isDarwin() and vim.env.TERM_PROGRAM == "WezTerm" then
+            return true
+          else
+            return false
+          end
+        end)(),
+      },
+    },
+    config = function(_, opts)
+      require("github-theme").setup(opts)
       vim.cmd("colorscheme github_dark")
     end,
   },
