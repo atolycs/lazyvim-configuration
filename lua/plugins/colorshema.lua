@@ -7,7 +7,10 @@ return {
     opts = {
       options = {
         transparent = (function()
-          if require("atolycs.util").isDarwin() and vim.env.TERM_PROGRAM == "WezTerm" then
+          if
+            require("atolycs.util").isDarwin()
+            and (vim.env.TERM_PROGRAM == "WezTerm" or vim.env.TERM_PROGRAM == "tmux")
+          then
             return true
           else
             return false
