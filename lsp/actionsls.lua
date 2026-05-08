@@ -50,3 +50,52 @@ local function get_repo_info(owner, repo)
   end
   return nil
 end
+
+local function get_repos_config()
+  local handle = io.popen("git rev-parse --show-toplevel 2>/dev/null")
+
+  if not handle then
+    return nil
+  end
+  local git_root = handle:read("*a"):gsub("%s+", "")
+  handle:close()
+
+  if git_root == "" then
+    return nil
+  end
+
+  handle = io.popen("git remote get-url origin 2>/dev/null")
+
+  if not handle then
+    return nil
+  end
+  local remote_url = handle:read("*a"):gsub("%s+", "")
+  handle:close()
+
+  local owner, name = parse_github_remote(remote_url)
+  if not owner or not name then
+    return nil
+  end
+
+  local info = get_repo_info(owner, name)
+
+  return {
+    {
+      id = info and info.id or 0,
+      owner = owner,
+      name = name,
+      organizationOwned = info and info.organizationOwned or false,
+      workspaceUri = "file://" .. git_root,
+    },
+  }
+end
+
+return {
+  cmd = { "actions-languageserver", "--stdio" },
+  filetypes = { "yaml.ghactions" },
+  root_markers = { ".git" },
+  init_options = {
+    sessionToken = get_github_token(),
+    repos = get_repos_config(),
+  },
+}
