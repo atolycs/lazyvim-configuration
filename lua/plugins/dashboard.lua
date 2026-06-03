@@ -1,5 +1,7 @@
 local v = vim.version()
-local version_str = string.format("%d.%d.%d", v.major, v.minor, v.patch)
+local version_nvim_str = string.format("%d.%d.%d", v.major, v.minor, v.patch)
+local version_lazyvim_str = require("lazyvim.config").version
+local version_lazycore_str = require("lazy.core.config").version
 
 local logo = [[
           ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
@@ -23,9 +25,25 @@ end
 local logo_padding = 5
 
 local header = logo
-  .. string.rep(" ", math.max(0, max_logo_width - #("ver " .. version_str)) - logo_padding)
+  .. string.rep(" ", math.max(0, max_logo_width - #("ver " .. version_lazyvim_str)) - logo_padding)
   .. "ver "
-  .. version_str
+  .. version_lazyvim_str
+  .. "\n"
+  .. string.rep(" ", math.max(0, max_logo_width - #("lazy.nvim ver " .. version_lazyvim_str)) - logo_padding)
+  .. "lazy.nvim ver "
+  .. version_lazycore_str
+  .. "\n"
+  .. string.rep(" ", math.max(0, max_logo_width - #("nvim ver " .. version_lazyvim_str)) - logo_padding)
+  .. "nvim ver "
+  .. version_nvim_str
+-- local header = logo
+--   .. string.rep(" ", math.max(0, max_logo_width - #("nvim ver " .. version_str)) - logo_padding)
+--   .. "nvim ver "
+--   .. version_str
+--   .. "\n"
+--   .. string.rep(" ", math.max(0, max_logo_width - #("ver " .. version_lazy_str)) - logo_padding)
+--   .. "lazy.nvim ver "
+--   .. version_lazy_str
 
 -- for _, l in ipairs(logo_lines) do
 --   max_logo_width = math.max(max_logo_width, vim.fn.strdisplaywidth(l.text))
