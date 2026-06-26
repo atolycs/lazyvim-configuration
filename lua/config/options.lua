@@ -16,6 +16,7 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 
 vim.g.lazyvim_cmp = "blink.cmp"
 vim.g.lazyvim_picker = "telescope"
+vim.g.lazyvim_check_order = false
 
 if util.isWin() then
   if util.which("pwsh") then

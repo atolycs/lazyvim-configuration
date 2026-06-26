@@ -1,16 +1,23 @@
 return {
   {
     "mason-org/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
+    build = ":MasonUpdate",
+    opts = {
+      ensure_installed = {
         "stylua",
-        "tree-sitter-cli",
-        "typescript-language-server",
-        "gh-actions-language-server",
-        "systemd-lsp",
-        "bash-language-server",
-      })
-    end,
+        "shfmt",
+      },
+    },
+    -- opts = function(_, opts)
+    --   vim.list_extend(opts.ensure_installed, {
+    --     "stylua",
+    --     "tree-sitter-cli",
+    --     "typescript-language-server",
+    --     "gh-actions-language-server",
+    --     "systemd-lsp",
+    --     "bash-language-server",
+    --   })
+    -- end,
   },
   {
     "mason-org/mason-lspconfig.nvim",

@@ -26,4 +26,18 @@ vim.api.nvim_create_user_command("OpenIDE", function()
   vim.cmd("resize 5")
 end, { desc = "Open IDE Terminal" })
 
+if vim.g.vscode then
+  vim.api.nvim_create_user_command("OpenMarkdownSidePreview", function()
+    local vscode = require("vscode")
+    vscode.call("markdown.showPreviewToSide")
+  end, { desc = "Open Markdown Preview in Sidebar" })
+end
+
+-- vim.api.nvim_create_user_command("OpenMarkdownSidePreview", function()
+--   local vscode = require("vscode")
+--   if vim.g.vscode then
+--     vscode.call("markdown.showPreviewToSide")
+--   end
+-- end)
+
 return M

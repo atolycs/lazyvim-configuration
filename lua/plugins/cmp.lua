@@ -58,7 +58,28 @@ return {
     end,
   },
 
-  { "nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = {
+        "typescript",
+        "markdown",
+        "lua",
+        "json",
+        "javascript",
+        "tsx",
+        "json5",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, { "tsx", "typescript" })
+    end,
+  },
   {
     "saghen/blink.cmp",
     dependencies = {
